@@ -1,6 +1,6 @@
 <?php
 // 1. Connectie leggen met de database
-$dbhost = "localhost:3307";
+$dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $dbname = "mydb";
