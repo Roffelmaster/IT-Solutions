@@ -30,8 +30,9 @@ while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     echo "<td>".$row['naam']."</td><br>";
     echo "<td>".'<img src="images/'. $row['afbeelding'] .'"height="370" width="370"/>'. "</td><br>";
+     echo "<td>€".$row['prijs']."</td><br>";
     echo "<td>".$row['beschrijving']."</td><br>";
-      echo "<td>€".$row['prijs']."</td><br>";
+     
     
     }
            
