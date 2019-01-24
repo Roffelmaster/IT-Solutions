@@ -80,7 +80,7 @@ include 'database.php';
   	$target = "images/".basename($image);
 
   	$sql = "INSERT INTO product (naam, prijs, beschrijving, afbeelding) 
-    VALUES ('$productnaam', '$omschrijving', '$prijs', '$image')";
+    VALUES ('$productnaam', '$prijs','$omschrijving',  '$image')";
   	// execute query
   	mysqli_query($db, $sql);
 
