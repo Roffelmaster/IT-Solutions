@@ -52,10 +52,22 @@ include 'database.php';
             <label for="foto"> Voeg een foto toe</label>
             <input type="file"
                    name="afbeelding" id="afbeelding">
+            <br>
             
+        <?php 
+        echo "leverancier:<br>";
+        $sql1 = "SELECT leverancier_idleverancier FROM product";
+        $result1 = mysqli_query($db, $sql1);
+            echo "<select leverancier_idleverancier='sub1'>";
+            while ($row1 = mysql_fetch_array($result1)) {
+                echo "<option value='" . $row1['leverancier_idleverancier'] . "'>" . $row1['leverancier_idleverancier'] . "</option>";
+            }
+                echo "</select";
+            
+    
+    
         
-        
-        
+        ?>
         </p>
         
         <button name="product-toevoegen-submit"> Voeg het product toe</button>
@@ -75,7 +87,6 @@ include 'database.php';
     $prijs = mysqli_real_escape_string($db, $_POST['prijs']);
   	$image = $_FILES['afbeelding']['name'];
   	
-
   	// image file directory
   	$target = "images/".basename($image);
 
