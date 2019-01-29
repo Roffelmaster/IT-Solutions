@@ -10,19 +10,19 @@ include 'database.php';
     <title>Phone Planet</title>
     <link rel="stylesheet" type="text/css" href="home.css">
 
-    
+
     <div id = 'content'>
-  
-    <form action="product-toevoegen.php"  
+
+    <form action="product-toevoegen.php"
           method="post"
           enctype="multipart/form-data">
-   
-    
+
+
       <p>
-        
-          <label for="naam">Product:</label><br> 
-            
-          
+
+          <label for="naam">Product:</label><br>
+
+
 
           <input type="text"
                    placeholder="voer in naam"
@@ -30,19 +30,19 @@ include 'database.php';
                    required>
         </p>
         <p>
-        
-            <label for="omschrijving">Omschrijving:</label><br> 
-           
+
+            <label for="omschrijving">Omschrijving:</label><br>
+
             <textarea type="text" rows="1" cols="60"
                       placeholder="geef een omschrijving"
                       name="beschrijving" id="beschrijving"
                       required></textarea>
-        
-        
-        
+
+
+
         </p>
         <p>
-            <label for="prijs"> Prijs:</label><br> 
+            <label for="prijs"> Prijs:</label><br>
             <input type="number"
                    placeholder="voer een prijs in"
                    name="prijs" id="prijs"
@@ -53,23 +53,23 @@ include 'database.php';
             <input type="file"
                    name="afbeelding" id="afbeelding">
             <br>
-            
-        <?php 
+
+        <?php
         echo "leverancier:<br>";
-        $sql1 = "SELECT leverancier_idleverancier FROM product";
+        $sql1 = "SELECT idleverancier FROM leverancier";
         $result1 = mysqli_query($db, $sql1);
-            echo "<select leverancier_idleverancier='sub1'>";
-            while ($row1 = mysql_fetch_array($result1)) {
-                echo "<option value='" . $row1['leverancier_idleverancier'] . "'>" . $row1['leverancier_idleverancier'] . "</option>";
+            echo "<select idleverancier='sub1'>";
+            while ($row1 = mysql_fetch_array($db, $result1)) {
+                echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['idleverancier'] . "</option>";
             }
                 echo "</select";
-            
-    
-    
-        
+
+
+
+
         ?>
         </p>
-        
+
         <button name="product-toevoegen-submit"> Voeg het product toe</button>
 
     </form>
@@ -86,11 +86,11 @@ include 'database.php';
   	$omschrijving = mysqli_real_escape_string($db, $_POST['beschrijving']);
     $prijs = mysqli_real_escape_string($db, $_POST['prijs']);
   	$image = $_FILES['afbeelding']['name'];
-  	
+
   	// image file directory
   	$target = "images/".basename($image);
 
-  	$sql = "INSERT INTO product (naam, prijs, beschrijving, afbeelding) 
+  	$sql = "INSERT INTO product (naam, prijs, beschrijving, afbeelding)
     VALUES ('$productnaam', '$prijs','$omschrijving',  '$image')";
   	// execute query
   	mysqli_query($db, $sql);
@@ -99,14 +99,14 @@ include 'database.php';
   		$msg = "Product is toegevoegd!";
   	}else{
   		$msg = "Product kon niet toegevoegd worden!";
-    
+
   	}
       echo $msg;
-      
+
   }
-  
+
 ?>
-    
+
     </body>
 
 </html>
