@@ -28,11 +28,11 @@ include 'database.php';
         </p>
            <p>
 
-          <label for="status">status:</label><br>
-          <input type="text"
-                   placeholder="voer status in"
-                   name="status" id="status"
-                   required>
+<br>
+          <select name="taskOption">
+  <option value="goedkeuring">afwachting</option>
+  <option value="betaald">betaald</option>
+</select>
 
 
         <button name="status-veranderen"> verander de status van factuur</button>
@@ -48,7 +48,7 @@ include 'database.php';
   // If upload button is clicked ...
   if (isset($_POST ['status-veranderen'])) {
     $factuurid = mysqli_real_escape_string($db, $_POST['factuurid']);
-  	$status = mysqli_real_escape_string($db, $_POST['status']);
+  	$status = mysqli_real_escape_string($db, $_POST['taskOption']);
 
 
   	$sql = "UPDATE factuur SET status = '$status' WHERE idfactuur = '$factuurid'";
