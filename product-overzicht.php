@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+
+?>
 <html>
 
     <head>
@@ -32,7 +37,11 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>".'<img src="images/'. $row['afbeelding'] .'"height="370" width="370"/>'. "</td><br>";
      echo "<td>€".$row['prijs']."</td><br>";
     echo "<td>".$row['beschrijving']."</td><br>";
+    echo "<button>";
+    echo "<a href=\"cart.php?&action=add&id=" .$row['idproduct']. "\">Add to cart</a>";
+    echo "</button>";
     
+    // Hier komt permission 
      echo ("<br<td> <a href=\"product-aanpassen.php?idproduct=".$row['idproduct']."\">
 Wijzig</a>");
     echo (" <a href=\"product-verwijderen.php?idproduct=".$row["idproduct"]."\">
