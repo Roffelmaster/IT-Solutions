@@ -62,7 +62,7 @@ include 'database.php';
             
             echo "<select>";
             while ($row1 = mysqli_fetch_array($result1)) {
-                echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['idleverancier'] . "</option>";
+                echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['naam'] . "</option>";
 
             }
 
