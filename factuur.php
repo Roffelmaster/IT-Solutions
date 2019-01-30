@@ -30,7 +30,7 @@ include 'database.php';
 
 <br>
           <select name="taskOption">
-  <option value="goedkeuring">afwachting</option>
+  <option value="keuring">afwachting</option>
   <option value="betaald">betaald</option>
 </select>
 
