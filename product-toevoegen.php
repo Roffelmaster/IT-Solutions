@@ -67,7 +67,7 @@ include 'database.php';
             }
 
            
-           }
+           
 
                 echo "</select>";
 
