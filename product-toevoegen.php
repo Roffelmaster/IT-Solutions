@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'database.php';
+
 ?>
 
 <html>
@@ -56,13 +57,15 @@ include 'database.php';
 
         <?php
         echo "leverancier:<br>";
-        $sql1 = "SELECT idleverancier FROM leverancier";
+       $sql1 = "SELECT * FROM leverancier";
         $result1 = mysqli_query($db, $sql1);
-            echo "<select idleverancier='sub1'>";
-            while ($row1 = mysql_fetch_array($db, $result1)) {
+            
+            echo "<select>";
+            while ($row1 = mysqli_fetch_array($result1)) {
                 echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['idleverancier'] . "</option>";
-            }
-                echo "</select";
+           
+           }
+                echo "</select>";
 
 
 
