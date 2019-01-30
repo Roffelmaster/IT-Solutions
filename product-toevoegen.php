@@ -60,7 +60,7 @@ include 'database.php';
        $sql1 = "SELECT * FROM leverancier";
         $result1 = mysqli_query($db, $sql1);
             
-            echo "<select>";
+            echo "<select name='leveranciersid'>";
             while ($row1 = mysqli_fetch_array($result1)) {
                 echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['naam'] . "</option>";
 
@@ -94,12 +94,12 @@ include 'database.php';
   	$omschrijving = mysqli_real_escape_string($db, $_POST['beschrijving']);
     $prijs = mysqli_real_escape_string($db, $_POST['prijs']);
   	$image = $_FILES['afbeelding']['name'];
-
+      $leveranciersid = mysqli_real_escape_string($db,$_POST['leveranciersid']);
   	// image file directory
   	$target = "images/".basename($image);
 
-  	$sql = "INSERT INTO product (naam, prijs, beschrijving, afbeelding)
-    VALUES ('$productnaam', '$prijs','$omschrijving',  '$image')";
+  	$sql = "INSERT INTO product (naam, prijs, beschrijving, afbeelding,leverancier_idleverancier)
+    VALUES ('$productnaam', '$prijs','$omschrijving',  '$image',$leveranciersid)";
   	// execute query
   	mysqli_query($db, $sql);
 
