@@ -62,13 +62,14 @@ include 'database.php';
             while ($row1 = mysql_fetch_array($db, $result1)) {
                 echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['idleverancier'] . "</option>";
             }
-                echo "</select";
+                echo "</select>";
 
 
 
 
         ?>
         </p>
+        
 
         <button name="product-toevoegen-submit"> Voeg het product toe</button>
 
