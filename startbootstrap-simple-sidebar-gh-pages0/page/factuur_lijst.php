@@ -2,14 +2,14 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Phone Planet</title>
-     <link rel="stylesheet" type="text/css" href="home.css">
+<title>IT-Solutions</title>
 </head>
 
 <?php
 
 session_start();
 include 'database.php';
+include 'layout_nav.php';
 
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .

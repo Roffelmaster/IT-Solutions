@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'database.php';
+include 'layout_nav.php';
 ?>
 
 <html>

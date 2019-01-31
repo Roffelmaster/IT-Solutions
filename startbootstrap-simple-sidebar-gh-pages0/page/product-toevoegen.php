@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'database.php';
-
+include 'layout_nav.php';
 ?>
 
 <html>
@@ -59,15 +59,15 @@ include 'database.php';
         echo "leverancier:<br>";
        $sql1 = "SELECT * FROM leverancier";
         $result1 = mysqli_query($db, $sql1);
-            
+
             echo "<select name='leveranciersid'>";
             while ($row1 = mysqli_fetch_array($result1)) {
                 echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['naam'] . "</option>";
 
             }
 
-           
-           
+
+
 
                 echo "</select>";
 
@@ -76,7 +76,7 @@ include 'database.php';
 
         ?>
         </p>
-        
+
 
         <button name="product-toevoegen-submit"> Voeg het product toe</button>
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'database.php';
+include 'layout_nav.php';
 ?>
 
 <html>
@@ -10,48 +11,48 @@ include 'database.php';
     <title>IT-solutions</title>
     <link rel="stylesheet" type="text/css" href="home.css">
 
-    
+
     <div id = 'content'>
-  
-    <form action="leverancier-toevoegen.php"  
+
+    <form action="leverancier-toevoegen.php"
           method="post"
           enctype="multipart/form-data">
-   
-    
+
+
       <p>
-        
-          <label for="naam">leverancier:</label><br> 
+
+          <label for="naam">leverancier:</label><br>
           <input type="text"
                    placeholder="voer in naam"
                    name="naam" id="naam"
                    required>
         </p>
            <p>
-        
-          <label for="address">address:</label><br> 
+
+          <label for="address">address:</label><br>
           <input type="text"
                    placeholder="voer address in"
                    name="address" id="address"
                    required>
         </p>
            <p>
-        
-          <label for="naam">telefoonnummer:</label><br> 
+
+          <label for="naam">telefoonnummer:</label><br>
           <input type="text"
                    placeholder="voer telefoonnummer in"
                    name="telefoonnummer" id="telefoonnummer"
                    required>
         </p>
            <p>
-        
-          <label for="naam">rekeningnummer:</label><br> 
+
+          <label for="naam">rekeningnummer:</label><br>
           <input type="text"
                    placeholder="voer rekeningnummer in"
                    name="rekeningnummer" id="rekeningnummer"
                    required>
         </p>
-    
-        
+
+
         <button name="leverancier-toevoegen-submit"> Voeg de leverancier toe</button>
 
     </form>
@@ -69,13 +70,13 @@ include 'database.php';
     $telefoonnummer = mysqli_real_escape_string($db, $_POST['telefoonnummer']);
     $rekeningnummer = mysqli_real_escape_string($db, $_POST['rekeningnummer']);
 
-  	$sql = "INSERT INTO leverancier (naam, address, telefoonnummer, rekeningnummer) 
+  	$sql = "INSERT INTO leverancier (naam, address, telefoonnummer, rekeningnummer)
     VALUES ('$naam', '$address','$telefoonnummer', '$rekeningnummer')";
   	// execute query
   	mysqli_query($db, $sql);
 
   }
-  
+
 ?>
     </head>
 

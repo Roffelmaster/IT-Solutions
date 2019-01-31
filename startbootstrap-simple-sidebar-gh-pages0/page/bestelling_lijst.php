@@ -10,6 +10,7 @@
 
 session_start();
 include 'database.php';
+include 'layout_nav.php';
 
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .
