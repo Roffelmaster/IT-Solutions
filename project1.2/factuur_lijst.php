@@ -76,11 +76,16 @@
     <div class="container">
         <h1 class="mt-5">facturen</h1><hr>
       <p>Op deze pagina vind u de lijst met de facturen.</p>
-     
+
 <?php
 
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 5){
+echo "je hebt hier geen rechten voor" ;
+} elseif($_SESSION['permissie'] != 6) {
+echo "je hebt hier geen rechten voor" ;
+}else{
 
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .
@@ -102,7 +107,7 @@ while($row = mysqli_fetch_array($result)) {
 
   ;
   echo "</tr>";
-
+}
  ?>
     </div>
     <!-- /.container -->

@@ -79,6 +79,12 @@
 
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 3){
+echo "je hebt hier geen rechten voor" ;
+} elseif($_SESSION['permissie'] != 5) {
+echo "je hebt hier geen rechten voor" ;
+
+}else{
 
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .
@@ -101,7 +107,7 @@ while($row = mysqli_fetch_array($result)) {
 
   ;
   echo "</tr>";
-
+}
  ?>
     </div>
     <!-- /.container -->

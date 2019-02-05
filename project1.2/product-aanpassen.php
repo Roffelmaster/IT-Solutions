@@ -74,19 +74,21 @@
 
     <!-- Page Content -->
     <div class="container">
-     
+
 
 <?php
 include 'database.php';
-
+if($_SESSION['permissie'] != 2){
+echo "je hebt hier geen rechten voor" ;
+}else{
 
 $id = $_GET['idproduct'];
 ?>
 <body>
     <div align="center">
-    <?php    
-    
-    
+    <?php
+
+
 $query = "SELECT * FROM product WHERE idproduct='" .$_GET["idproduct"] ."'";
 $result = mysqli_query($db, $query);
 if (mysqli_num_rows($result) > 0) {
@@ -97,16 +99,16 @@ $omschrijving = $row["beschrijving"];
 $prijs = $row["prijs"];
 $image = $row["afbeelding"];
 }}
-    
+
     ?>
-        
+
         <h3>Let op: Deze gegevens wijzigen?</h3>
 <form action="product-aanpassen2.php" method="post">
 <input type="hidden" name="confirmation" value="1">
 <input type="hidden" name="idproduct" value="<?php echo $id;?>">
 
 
-    
+
     <table>
 <input type="hidden" name ="id" id="id" value='<?php echo "$id"?> '>
 <tr><td>Productnaam:</td><td><input type="text" name="naam" value="<?php echo($productnaam);?>"
@@ -125,6 +127,9 @@ echo($prijs);?>" size="30"></td></tr>
     </div>
 
     </body>
+    <?php
+}
+     ?>
 </html>
 
     </div>
@@ -137,7 +142,3 @@ echo($prijs);?>" size="30"></td></tr>
   </body>
 
 </html>
-
-
-
-

@@ -78,6 +78,12 @@
      <?php
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 5){
+echo "je hebt hier geen rechten voor" ;
+} elseif($_SESSION['permissie'] != 6) {
+echo "je hebt hier geen rechten voor" ;
+
+}else{
         ?>
     <form action="factuur.php"
           method="post"
@@ -123,8 +129,9 @@ include 'database.php';
     database.');
 
   }
+}
 ?>
-    
+
     </div>
     <!-- /.container -->
 
@@ -135,7 +142,3 @@ include 'database.php';
   </body>
 
 </html>
-
-
-
-

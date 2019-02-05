@@ -77,7 +77,7 @@
      <?php
 echo"<br>";
 include 'database.php';
-    
+
 // Test of de verbinding werkt!
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .
@@ -85,14 +85,14 @@ mysqli_connect_error() . " (" .
 mysqli_connect_errno() . ")" );
 }
 
-    
-    
+
+
 $query = "SELECT * FROM leverancier";
 $result = mysqli_query($db, $query) or die('Error querying
 database.');
-    
- 
-    
+
+
+
 // het tonen van de gegevens
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
@@ -104,16 +104,16 @@ while($row = mysqli_fetch_array($result)) {
 Wijzig</a>");
     echo (" <a href=\"leverancier-verwijderen.php?idleverancier=".$row["idleverancier"]."\">
 Verwijder</a><br>");
-    
+
     }
-           
-       ; 
+
+       ;
     echo "</tr>";
-        
+
 
  mysqli_free_result($result);
- mysqli_close($db);   
-    
+ mysqli_close($db);
+
 ?>
 </html>
     </div>
@@ -126,4 +126,3 @@ Verwijder</a><br>");
   </body>
 
 </html>
-

@@ -76,15 +76,18 @@
 <?php
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 2){
+echo "je hebt hier geen rechten voor" ;
+}else{
 $id = $_GET['idproduct'];
 ?>
 
-<body>   
-    <div align="center"> 
+<body>
+    <div align="center">
         <?php
 
 $query = "SELECT * FROM product WHERE idproduct=".$id.";";
-    
+
 $result = mysqli_query($db, $query);
 if (mysqli_num_rows($result) > 0) {
 // output data of each row
@@ -97,25 +100,27 @@ echo "<tr><td>prijs:</td><td> ".$row["prijs"]. "</td></tr> " ;
 echo "<tr><td>foto:</td><td> ".'<img src="images/'. $row['afbeelding'] .'"/>'."</td></tr>";
 echo "</table><p>"; }
 
-} 
+}
     ?>
-  <html>  
-    
+  <html>
+
     <form action="product-verwijderen2.php" method="post">
 <input type="hidden" name="confirmation" value="1">
 <input type="hidden" name="idproducts" value="<?php echo $id;?>">
 
 <input type="Submit" value="verwijderen" >
 <input type="Button" value="Nee, terug" onclick="javascript:history.back();">
-      
+
 </form>
         </html>
 
-</div>  
+</div>
 
     </body>
 </html>
-
+<?php
+}
+ ?>
     </div>
     <!-- /.container -->
 
@@ -126,4 +131,3 @@ echo "</table><p>"; }
   </body>
 
 </html>
-

@@ -75,14 +75,16 @@
     <div class="container">
        <?php
 include 'database.php';
-
+if($_SESSION['permissie'] != 2){
+echo "je hebt hier geen rechten voor" ;
+}else{
 
 $id = $_GET['idleverancier'];
 ?>
 <body>
-    <?php    
-    
-    
+    <?php
+
+
 $query = "SELECT * FROM leverancier WHERE idleverancier='" .$_GET["idleverancier"] ."'";
 $result = mysqli_query($db, $query);
 if (mysqli_num_rows($result) > 0) {
@@ -93,17 +95,17 @@ $address = $row["address"];
 $telefoonnummer = $row["telefoonnummer"];
 $rekeningnummer = $row["rekeningnummer"];
 }}
-    
+
     ?>
     <br><br>
-        
+
         <h3>Let op: Deze gegevens wijzigen?</h3>
 <form action="leverancier-aanpassen2.php" method="post">
 <input type="hidden" name="confirmation" value="1">
 <input type="hidden" name="idleverancier" value="<?php echo $id;?>">
 
 
-    
+
     <table>
 <input type="hidden" name ="id" id="id" value='<?php echo "$id"?> '>
 <tr><td>leveranciernaam:</td><td><input type="text" name="naam" value="<?php echo($naam);?>"
@@ -122,7 +124,7 @@ echo($rekeningnummer);?>" size="30"></td></tr>
 <input type="reset" value="Leegmaken">
 <input type="Button" value="Nee, terug" onclick="javascript:history.back();">
     </form>
- 
+
 
     </body>
 </html>
@@ -134,8 +136,7 @@ echo($rekeningnummer);?>" size="30"></td></tr>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
-
+<?php
+}
+ ?>
 </html>
-
-
-

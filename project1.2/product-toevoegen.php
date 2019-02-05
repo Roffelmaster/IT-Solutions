@@ -1,9 +1,3 @@
-<?php
-session_start();
-include 'database.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +71,13 @@ include 'database.php';
     </nav>
 
     <!-- Page Content -->
-      
+<?php
+session_start();
+include 'database.php';
+if($_SESSION['permissie'] != 2){
+echo "je hebt hier geen rechten voor" ;
+}else{
+ ?>
     <div class="container">
          <form action="product-toevoegen.php"
           method="post"
@@ -126,15 +126,15 @@ include 'database.php';
         echo "leverancier:<br>";
        $sql1 = "SELECT * FROM leverancier";
         $result1 = mysqli_query($db, $sql1);
-            
+
             echo "<select name='leveranciersid'>";
             while ($row1 = mysqli_fetch_array($result1)) {
                 echo "<option value='" . $row1['idleverancier'] . "'>" . $row1['naam'] . "</option>";
 
             }
 
-           
-           
+
+
 
                 echo "</select>";
 
@@ -143,7 +143,7 @@ include 'database.php';
 
         ?>
         </p>
-        
+
 
         <button name="product-toevoegen-submit"> Voeg het product toe</button>
 
@@ -179,10 +179,11 @@ include 'database.php';
       echo $msg;
 
   }
+}
 ?>
       </div>
-      
-    
+
+
     <!-- /.container -->
 
     <!-- Bootstrap core JavaScript -->

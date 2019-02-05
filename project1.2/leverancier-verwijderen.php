@@ -76,15 +76,18 @@
        <?php
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 2){
+echo "je hebt hier geen rechten voor" ;
+}else{
 $id = $_GET['idleverancier'];
 ?>
             <br><br>
-<body>   
-       
+<body>
+
         <?php
 
 $query = "SELECT * FROM leverancier WHERE idleverancier=".$id.";";
-    
+
 $result = mysqli_query($db, $query);
 if (mysqli_num_rows($result) > 0) {
 // output data of each row
@@ -97,22 +100,25 @@ echo "<tr><td>telefoonnummer:</td><td> ".$row["telefoonnummer"]. "</td></tr> " ;
 echo "<tr><td>rekeningnummer:</td><td> ". $row['rekeningnummer'] ."</td></tr>";
 echo "</table><p>"; }
 
-} 
+}
     ?>
-  <html>  
-    
+  <html>
+
     <form action="leverancier-verwijderen2.php" method="post">
 <input type="hidden" name="confirmation" value="1">
 <input type="hidden" name="idleverancier" value="<?php echo $id;?>">
 
 <input type="Submit" value="verwijderen" >
 <input type="Button" value="Nee, terug" onclick="javascript:history.back();">
-      
+
 </form>
 </html>
 
 
     </body>
+    <?php
+  }
+     ?>
 </html>
 
     </div>
@@ -125,13 +131,3 @@ echo "</table><p>"; }
   </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-

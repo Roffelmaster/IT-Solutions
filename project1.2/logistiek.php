@@ -70,10 +70,13 @@
       </div>
     </nav>
     <!-- Page Content -->
-      
+
       <?php
 session_start();
 include 'database.php';
+if($_SESSION['permissie'] != 4){
+echo "je hebt hier geen rechten voor" ;
+}else{
 ?>
     <div class="container">
         <h1 class="mt-5">Status bestelling</h1><hr>
@@ -121,6 +124,8 @@ include 'database.php';
     database.');
 
   }
+
+}
 ?>
     </div>
     <!-- /.container -->
