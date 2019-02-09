@@ -81,11 +81,19 @@
 
 session_start();
 include 'database.php';
-if($_SESSION['permissie'] != 5){
-echo "je hebt hier geen rechten voor" ;
-} elseif($_SESSION['permissie'] != 6) {
-echo "je hebt hier geen rechten voor" ;
-}else{
+if($_SESSION['permissie'] == 1){
+echo "je hebt hier geen rechten voor 1" ;
+}
+elseif ($_SESSION['permissie'] == 2){
+echo "je hebt hier geen rechten voor 2" ;
+}
+elseif ($_SESSION['permissie'] == 3){
+echo "je hebt hier geen rechten voor 6" ;
+}
+elseif ($_SESSION['permissie'] == 4){
+echo "je hebt hier geen rechten voor 6" ;
+}
+else{
 
 if (mysqli_connect_errno()) {
 die("De verbinding met de database is mislukt: " .

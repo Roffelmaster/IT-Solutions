@@ -99,6 +99,7 @@ echo "je hebt hier geen rechten voor" ;
              <select name="status">
      <option value="verwacht">afwachting</option>
      <option value="bezorgd">bezorgd</option>
+     <option value="afgeleverd">afgeleverd</option>
    </select>
 
 
