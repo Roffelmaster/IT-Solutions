@@ -79,6 +79,7 @@ include ('database.php');
 if (!empty($_POST)){
 
 	$gebruiker = mysqli_real_escape_string($db, $_POST['naam']);
+    
 	$wachtwoord = mysqli_real_escape_string($db, $_POST['wachtwoord']);
 	$query = 	"SELECT * FROM werknemer
 				WHERE naam ='" . $_POST["naam"] ."'
@@ -95,6 +96,7 @@ if (!empty($_POST)){
 
     while($row = mysqli_fetch_assoc($result)) {
       $_SESSION["permissie"] = $row['permissie'];
+    $_SESSION["id"] = $row['idwerknemer'];
 	}
 		// Doorsturen naar beveiligde pagina
 

@@ -102,10 +102,10 @@ database.');
 // het tonen van de gegevens
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>".$row['naam']."</td><br>";
-    echo "<td>".'<img src="images/'. $row['afbeelding'] .'"height="370" width="370"/>'. "</td><br>";
-     echo "<td>€".$row['prijs']."</td><br>";
-    echo "<td>".$row['beschrijving']."</td><br>";
+    echo "<td>".'<img src="images/'. $row['afbeelding'] .'"height="250" width="250"/>'. "</td><br>";
+     echo "<td>"."Product Naam: ".$row['naam']."</td><br>";
+     echo "<td>"."Prijs: €".$row['prijs']."</td><br>";
+    echo "<td>"."Beschrijving: ".$row['beschrijving']."</td><br>";
     echo "<button>";
     echo "<a href=\"cart.php?&action=add&id=" .$row['idproduct']. "\">Add to cart</a>";
     echo "</button>";

@@ -204,17 +204,20 @@ mysqli_connect_errno() . ")" );
 
 <div id="container">
  
-<h1>Winkelmand</h1> 
+<h1>Uw Bestelling</h1> 
  
 <form method="post" action="cart.php">
  <table> 
      
           
         <tr> 
-            <th>Naam Product</th> 
-            <th>Aantal</th> 
-            <th> Enkel Prijs</th> 
-            <th>Totaal</th> 
+            <th>Naam</th> 
+            <th> </th>
+            <th>Aantal</th>
+            
+            <th>Prijs</th>
+            <th> </th>
+            <th>Sub-Totaal</th> 
         </tr> 
 
 
@@ -249,10 +252,13 @@ $sql="SELECT * FROM product WHERE idproduct IN (";
      
      
                         <tr> 
-                            <td><?php echo $row['naam'] ?></td> 
+                            <td><?php echo $row['naam'] ?></td>
+                            <td> &nbsp;  </td>
                             <td>
                             <input type="text" name="quantity[<?php echo  $row['idproduct'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['idproduct']]['quantity'] ?>" /></td> 
+                            
                             <td>&euro;<?php echo $row['prijs'] ?></td> 
+                            <td>    &nbsp;   </td>
                             <td> &euro;<?php echo $_SESSION['cart'][$row['idproduct']]['quantity']*$row['prijs'] ?></td> 
                         </tr> 
                         
@@ -269,7 +275,7 @@ $sql="SELECT * FROM product WHERE idproduct IN (";
                         
                         
 <tr> 
-                        <td colspan="4">Totaal Totaal: &euro; <?php echo $totalprice ?> </td> 
+                        <td colspan="4">Totaal: &euro; <?php echo $totalprice ?> </td> 
                     </tr> 
           
  
@@ -281,8 +287,8 @@ $sql="SELECT * FROM product WHERE idproduct IN (";
 
    <p>
    
-        <button><a href="product-overzicht.php">Klik hier om Verder te shoppen</a>  </button>
-        <button type="submit" name="submit">Update Winkelmand!</button>
+        <button style="border-radius: 12px;"><a href="product-overzicht.php" style="color:black;">Terug </a>  </button>
+        <button style="border-radius: 12px;" type="submit" name="submit">Update </button>
       <?php
     
     // kan alleen uitchecken wnr totalprijs > 0
@@ -291,7 +297,7 @@ $sql="SELECT * FROM product WHERE idproduct IN (";
     {
         ?>
        
-       <button><a href="cart2.php">Klik hier om uit te checken </a>  </button>
+       <button style="border-radius: 12px;"><a href="cart2.php" style="color:black;">Doorgaan </a>  </button>
     <?php 
        }
        else {
@@ -301,7 +307,7 @@ $sql="SELECT * FROM product WHERE idproduct IN (";
 
       </p> 
     </form> 
-     <p>Als u iets wilt verwijderen pas het aantal naar 0 en klik vervolgens op Update knopje! </p>
+     
 </div>
 
     </div>

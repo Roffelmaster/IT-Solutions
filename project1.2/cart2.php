@@ -94,7 +94,7 @@ mysqli_connect_errno() . ")" );
 ?>
      <h1>
 
-Uw order overzicht
+Volledige overzicht
 
 </h1>
 
@@ -143,7 +143,7 @@ $array = array();
      
 $getWerknemersid = $_COOKIE['login'];
                            
-                           
+        $nummer = 1;                   
     foreach ($id as $aantal) {
             
      $idproduct = $row['idproduct'];
@@ -160,9 +160,15 @@ $getWerknemersid = $_COOKIE['login'];
         
    
         $array[1] = $row['idproduct'];
-       
+         
+        echo "<h5> Product $nummer </h5>";
+        
+      
+        
+         echo "<td>".'<img  src="images/'. $row['afbeelding'] .'"height="250" width="250"/>'. "</td>";
         echo "</br>";
-        echo  "Productnaam:  " . $row['naam'];
+        $nummer++ ;
+        echo  "Naam:  " . $row['naam'];
         
         echo "</br>";
         echo "Omschrijving: " .$row['beschrijving'];
@@ -186,7 +192,7 @@ $getWerknemersid = $_COOKIE['login'];
         echo $aantal * $row['prijs'];
         echo "</br>";
         echo "</br>";
-         echo "<td>".'<img  src="images/'. $row['afbeelding'] .'"/>'. "</td>";
+        
         
     }
         
@@ -223,10 +229,10 @@ $getWerknemersid = $_COOKIE['login'];
 </p>
 <p>
     
- <button><a href="cart.php">Winkelmandje aanpassen </a>  </button>
-    <button><a href="product-overzicht.php">Klik hier om terug te gaan naar de Telefoons</a>  </button>
+ <button style="border-radius: 12px;"><a href="cart.php" style="color:black;">Terug</a>  </button>
+    <button style="border-radius: 12px;"><a href="product-overzicht.php" style="color:black;">Helemaal Terug</a>  </button>
     
-    <button><a href="verder.php">Verder </a>  </button>
+    <button style="border-radius: 12px;"><a href="verder.php" style="color:black;">Verder </a>  </button>
     
     
 </p>

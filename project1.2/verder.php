@@ -93,9 +93,10 @@ mysqli_connect_errno() . ")" );
     <body>
 <h1>
 
-Klik op de knop hieronder om uw bestelling te plaatsen.
+Uw bestelling is geplaatst.
 
 </h1>
+    
 
 <?php 
 
@@ -140,7 +141,8 @@ foreach ( $_SESSION['cart'] as $key => $id){
 $array = array();
 
      
-$getWerknemersid = $_COOKIE['login'];
+$getWerknemersid = $_SESSION['id'];
+
                            
                            
     foreach ($id as $aantal) {
@@ -193,13 +195,16 @@ $getWerknemersid = $_COOKIE['login'];
      if ($array[0] > 499) {
         $sql2 = "INSERT INTO bestelling
         (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedkeuring','$array[1]','$array[2]','$getWerknemersid');" ;
-          mysqli_query($db, $sql2);                  
+          mysqli_query($db, $sql2);  
+         
+         
      }
        else {
            $sql2 = "INSERT INTO bestelling
        
         (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedgekeurd','$array[1]','$array[2]','$getWerknemersid');" ;
           mysqli_query($db, $sql2);  
+           
          
        }
                           
@@ -223,7 +228,7 @@ $getWerknemersid = $_COOKIE['login'];
 <p>
     
  
-    <button><a href="product-overzicht.php">Bestelling Plaatsen</a>  </button>
+    <button style="border-radius: 12px;"><a href="product-overzicht.php" style="color:black;">Accept</a>  </button>
     
    
     

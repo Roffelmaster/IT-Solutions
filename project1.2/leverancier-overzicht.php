@@ -92,19 +92,25 @@ $result = mysqli_query($db, $query) or die('Error querying
 database.');
 
 
-
+$nummer  = 1;
 // het tonen van de gegevens
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>".$row['naam']."</td><br>";
-     echo "<td>".$row['address']."</td><br>";
-     echo "<td>".$row['telefoonnummer']."</td><br>";
-    echo "<td>".$row['rekeningnummer']."</td><br>";
+    echo "Leverancier: $nummer";
+    $nummer++;
+    echo "</br>";
+    echo "<td>"."Naam: ".$row['naam']."</td><br>";
+     echo "<td>"."Adres: ".$row['address']."</td><br>";
+     echo "<td>"."Telefoonnummer: ".$row['telefoonnummer']."</td><br>";
+    echo "<td>"."Rekeningnummer: ".$row['rekeningnummer']."</td><br>";
+    
+    
     echo ("<br<td> <a href=\"leverancier-aanpassen.php?idleverancier=".$row['idleverancier']."\">
 Wijzig</a>");
+    //afdeling die leveranciers mag wijzigen mag alleen dit zien.
     echo (" <a href=\"leverancier-verwijderen.php?idleverancier=".$row["idleverancier"]."\">
 Verwijder</a><br>");
-
+echo "</br>";
     }
 
        ;
