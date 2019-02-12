@@ -60,6 +60,9 @@
                <li class="nav-item">
               <a class="nav-link" href="logistiek.php">logistiek</a>
             </li>
+             <li class="nav-item">
+            <a class="nav-link" href="manager.php">manager</a>
+          </li>
             <li class="nav-item">
               <a class="nav-link" href="frm_login.php">login</a>
             </li>
