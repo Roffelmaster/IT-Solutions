@@ -75,6 +75,7 @@
 session_start();
 
 
+echo "<br><br>";
 include "database.php";
 
 
@@ -233,17 +234,6 @@ $getWerknemersid = $_COOKIE['login'];
 
 
 
-
-    </div>
-    
-    
-    
-    </body>
-
-
-</html>
-
-    </div>
     <!-- /.container -->
 
     <!-- Bootstrap core JavaScript -->

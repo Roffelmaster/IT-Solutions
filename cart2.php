@@ -21,7 +21,7 @@ mysqli_connect_errno() . ")" );
 ?>
 <html>
     <body>
-<div id="container">
+
 <h1>
 
 Uw order overzicht
@@ -154,7 +154,7 @@ $getWerknemersid = $_COOKIE['login'];
 <p>
     
  <button><a href="cart.php">Winkelmandje aanpassen </a>  </button>
-    <button><a href="product-overzicht.php">Klik hier om terug te gaan naar de Telefoons</a>  </button>
+    <button><a href="product-overzicht.php">Klik hier om terug te gaan naar de Producten/a>  </button>
     
     <button><a href="verder.php">Verder </a>  </button>
     
