@@ -195,7 +195,7 @@ $getWerknemersid = $_SESSION['id'];
                            
      if ($array[0] > 499) {
         $sql2 = "INSERT INTO bestelling
-        (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedkeuring','$array[1]','$array[2]','$getWerknemersid');" ;
+        (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedkeuring vereist','$array[1]','$array[2]','$getWerknemersid');" ;
           mysqli_query($db, $sql2);  
          
          
@@ -203,8 +203,21 @@ $getWerknemersid = $_SESSION['id'];
        else {
            $sql2 = "INSERT INTO bestelling
        
-        (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedgekeurd','$array[1]','$array[2]','$getWerknemersid');" ;
+        (status,product_idproduct,aantal,werknemer_idwerknemer)Values('Automatische Goedgekeurd','$array[1]','$array[2]','$getWerknemersid');" ;
           mysqli_query($db, $sql2);  
+           $sqltemp = "SELECT idbestelling FROM bestelling WHERE status ='Automatische Goedgekeurd' AND product_idproduct ='$array[1]' AND aantal ='$array[2]' AND werknemer_idwerknemer ='$getWerknemersid'";
+           
+           
+        $sqltemp2 = mysqli_query($db,$sqltemp);
+           while ($row = mysqli_fetch_array($sqltemp2)){
+               
+          $red = $row['idbestelling'];
+           $sql3 = "INSERT INTO factuur (status,bestelling_idbestelling)Values('wachtend op goedkeuring','$red');";
+              
+             
+           
+          mysqli_query($db,$sql3);
+         
            
          
        }
@@ -213,8 +226,9 @@ $getWerknemersid = $_SESSION['id'];
                        }
       
 
+                       
                        }
-  
+  }
 
   
 

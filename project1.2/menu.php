@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
+<?php
+include 'database.php';
+session_start();
+?>
+<html>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +21,6 @@
   </head>
 
   <body>
-
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -36,18 +37,31 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+              <?php
+               if($_SESSION['permissie'] == 2){
+                   ?>
             <li class="nav-item">
               <a class="nav-link" href="product-toevoegen.php">product toevoegen</a>
             </li>
+              
+              <?php
+               }
+                   ?>
             <li class="nav-item">
               <a class="nav-link" href="product-overzicht.php">Producten</a>
             </li>
+              <?php
+               if($_SESSION['permissie'] == 2){
+                   ?>
               <li class="nav-item">
               <a class="nav-link" href="leverancier-overzicht.php">leveranciers</a>
             </li>
                <li class="nav-item">
               <a class="nav-link" href="leverancier-toevoegen.php">leverancier toevoegen</a>
               </li>
+               <?php
+               }
+                   ?>
                     <li class="nav-item">
               <a class="nav-link" href="bestelling_lijst.php">Bestelling lijst</a>
             </li>
@@ -73,72 +87,11 @@
         </div>
       </div>
     </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-         <h1 class="mt-5">factuur goedkeruing</h1><hr>
-      <p>keur hier de facturen zonodig goed.</p>
-     <?php
-session_start();
-include 'database.php';
-if ($_SESSION['permissie'] != 5){
-echo "je hebt hier geen rechten voor" ;
-} elseif ($_SESSION['permissie'] != 6) {
-echo "je hebt hier geen rechten voor" ;
-
-}else{
-        ?>
-    <form action="factuur.php"
-          method="post"
-          enctype="multipart/form-data">
-
-
-      <p>
-
-          <label for="factuurid">factuur:</label><br>
-          <input type="text"
-                   placeholder="voer in factuurid"
-                   name="factuurid" id="factuurid"
-                   required>
-        </p>
-           <p>
-
-<br>
-          <select name="taskOption">
-  <option value="goedkeuring">afwachting</option>
-  <option value="betaald">betaald</option>
-</select>
-
-
-        <button name="status-veranderen"> verander de status van factuur</button>
-
-    </form>
-    </div>
-        <?php
-
-
-  // Initialize message variable
-  $msg = "";
-
-  // If upload button is clicked ...
-  if (isset($_POST ['status-veranderen'])) {
-    $factuurid = mysqli_real_escape_string($db, $_POST['factuurid']);
-  	$status = mysqli_real_escape_string($db, $_POST['taskOption']);
-
-
-  	$sql = "UPDATE factuur SET status = '$status' WHERE idfactuur = '$factuurid'";
-  	// execute query
-  	mysqli_query($db, $sql) or die('Error querying
-    database.');
-
-  }
-}
-?>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- Bootstrap core JavaScript -->
+      
+      
+      
+    
+      <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

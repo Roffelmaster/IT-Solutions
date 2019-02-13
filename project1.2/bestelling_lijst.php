@@ -76,8 +76,8 @@
 
     <!-- Page Content -->
     <div class="container">
-         <h1 class="mt-5">Bestellingen</h1><hr>
-      <p>Op deze pagina vind u de lijst met geplaatste bestellingen.</p>
+         <h1 class="mt-5">Bestellingen (KOPER) </h1><hr>
+      <p>Op deze pagina staan de goedgekeurde bestellingen die nog doorgevoerd moeten worden</p>
      <?php
 
 session_start();
@@ -102,18 +102,31 @@ mysqli_connect_errno() . ")" );
 $query = "SELECT * FROM bestelling";
 $result = mysqli_query($db, $query) or die('Error querying
 database.');
-
+$nummer = 1;
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>"."bestellingid:".$row['idbestelling']."</td><br>";
-    echo "<td>"."product:".$row['product_idproduct']."</td><br>";
-    echo "<td>"."werknemer:".$row['werknemer_idwerknemer']."</td><br>";
-    echo "<td>"."status:".$row['status']."</td><br>";
+    echo "Nummer: $nummer";
+    echo "</br>";
+    echo "<td>"."ID: ".$row['idbestelling']."</td><br>";
+    echo "<td>"."PRODUCT ID: ".$row['product_idproduct']."</td><br>";
+    echo "<td>"."WERKNEMER ID: ".$row['werknemer_idwerknemer']."</td><br>";
+    echo "<td>"."status: ".$row['status']."</td><br>";
+    
+    if ($row['status'] == "Geaccepteerd"){
+        
+    echo '<button style="border-radius: 12px;">';
+     echo ("<br<td> <a href=\"koper_betalen.php?id=".$row['idbestelling'].'"style="color:black;""'."\">
+Betaal</a>");
+    echo "</button>";
+    
+    echo "</br>";
+    }
+    $nummer++;
+   
 
-  }
-
-  ;
+  
   echo "</tr>";
+}
 }
  ?>
     </div>

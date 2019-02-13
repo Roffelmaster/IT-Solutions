@@ -95,21 +95,42 @@ echo "je hebt hier geen rechten voor" ;
           method="post"
           enctype="multipart/form-data">
 
-
+<p>
+        </p>
       <p>
+          <select name="factuurid">
+<?php
+            $query = "SELECT * FROM factuur";
+$result2 = mysqli_query($db, $query) or die('Error querying
+database.');
+while($row = mysqli_fetch_array($result2)) {
+  ?>
+                       
+                       <option value="<?php echo $row['idfactuur'] ?>"> <?php echo "ID_FACTUUR:  ". $row['idfactuur'] .
+      " |    STATUS :  ".$row['status']."   |   BESTELLING_ID:  ". $row['bestelling_idbestelling'] ?> </option>
+<?php
+                       }
 
+    ?>
+     
+     
+   </select>
+        </p> 
+          
+          <!--
           <label for="factuurid">factuur:</label><br>
           <input type="text"
                    placeholder="voer in factuurid"
                    name="factuurid" id="factuurid"
                    required>
         </p>
+-->
            <p>
 
-<br>
+
           <select name="taskOption">
-  <option value="goedkeuring">afwachting</option>
-  <option value="goedgekeurd">goedgekeurd</option>
+  <option value="factuur afgewezen">Afwijzen</option>
+  <option value="factuur goedgekeurd">Accepteren</option>
 </select>
 
 
@@ -143,22 +164,46 @@ echo "je hebt hier geen rechten voor" ;
 
 
       <p>
-
+     <!--     
           <label for="bestellingid">bestelling:</label><br>
           <input type="text"
                    placeholder="voer in bestellingid"
                    name="bestellingid" id="bestellingid"
                    required>
+          -->
+                   <select name="bestellingid">
+            <?php
+    if (mysqli_connect_errno()) {
+die("De verbinding met de database is mislukt: " .
+mysqli_connect_error() . " (" .
+mysqli_connect_errno() . ")" );
+    }
+        $query = "SELECT * FROM bestelling";
+$result = mysqli_query($db, $query) or die('Error querying
+database.');
+while($row = mysqli_fetch_array($result)) {
+  ?>
+                       
+                       <option value="<?php echo $row['idbestelling'] ?>"> <?php echo "ID_BESTELLING:  ". $row['idbestelling'] .
+      " |    STATUS :  ".$row['status']."   |   PRODUCT_ID:  ". $row['product_idproduct']."| AANTAL:  ". $row['aantal'] ?> </option>
+<?php
+                       }
+
+    ?>
+     
+     
+   </select>
         </p>
            <p>
 
              <select name="status_bestelling">
-     <option value="verwacht">afwachting</option>
-     <option value="goedgekeurd">goedgekeurd</option>
+     <option value="In afwachting">afwachting </option>
+     <option value="Geaccepteerd">Accepteren</option>
+    <option value="Afgewezen">Afwijzen</option>
    </select>
 
 
-        <button name="status-veranderend"> verander de status van bestelling</button>
+        <button name="status-veranderend"> Verander de status van bestelling</button>
 
     </form>
     </div>

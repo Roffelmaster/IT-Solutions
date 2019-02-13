@@ -1,8 +1,12 @@
+<?php
 
+include 'menu.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<?php
+/*
+ <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,7 +78,7 @@
         </div>
       </div>
     </nav>
-
+*/?>
     <!-- Page Content -->
     <div class="container">
 
@@ -138,10 +142,10 @@ echo($prijs);?>" size="30"></td></tr>
     </div>
     <!-- /.container -->
 
-    <!-- Bootstrap core JavaScript -->
+    <!-- Bootstrap core JavaScript 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+-->
   </body>
 
 </html>

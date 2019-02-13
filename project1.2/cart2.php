@@ -117,12 +117,21 @@ foreach ($_SESSION['cart'] as $key => $v1 )
  $query= mysqli_query($db,$sql);
 
   if (!empty($query)) {
-                       while($row=mysqli_fetch_array($query,MYSQLI_ASSOC)){ 
+                     $nummer = 1;
+     
+      
+      $tester = array();
+        
+$array = array();
+      $i = 0; 
+/* !!! */ while($row=mysqli_fetch_array($query,MYSQLI_ASSOC)){ 
 echo "</br>";
 
 
- 
+  
 foreach ( $_SESSION['cart'] as $key => $id){
+   
+    $tester[] = $id;
     
    echo "<p>";
    if(
@@ -137,28 +146,35 @@ foreach ( $_SESSION['cart'] as $key => $id){
    }
   
 }
-  
-$array = array();
+
 
      
 $getWerknemersid = $_COOKIE['login'];
-                           
-        $nummer = 1;                   
-    foreach ($id as $aantal) {
-            
+                          
+          
+                          
+    $tester4 = array();
+    foreach ($tester as $key => $aantal) {
+$a = 0;
+    
+        $tester4[] = $aantal['quantity'][$a];
+       
      $idproduct = $row['idproduct'];
      $prijs = $row['prijs'];
-    
+        $a ++;
+    }
         
+   
    //  $sql2 = "INSERT INTO bestellingen (idProduct,Prijs,Aantal) Values('$idproduct','$prijs','$aantal')
        
       //  ;";
         
        
   // toevoegen van order naar de database      
-    
         
-   
+
+    
+  
         $array[1] = $row['idproduct'];
          
         echo "<h5> Product $nummer </h5>";
@@ -167,7 +183,7 @@ $getWerknemersid = $_COOKIE['login'];
         
          echo "<td>".'<img  src="images/'. $row['afbeelding'] .'"height="250" width="250"/>'. "</td>";
         echo "</br>";
-        $nummer++ ;
+        
         echo  "Naam:  " . $row['naam'];
         
         echo "</br>";
@@ -179,7 +195,7 @@ $getWerknemersid = $_COOKIE['login'];
         echo " " . $row["prijs"];
        
         echo "</br>";
-         echo "aantal: ".$aantal;
+         echo "aantal: ".$tester4[$i];
         $array[2] = $aantal;
         echo "</br>";
         
@@ -188,15 +204,16 @@ $getWerknemersid = $_COOKIE['login'];
         
         
         echo " ";
-        $array[0] = $aantal * $row['prijs'];
-        echo $aantal * $row['prijs'];
+        $array[0] = $tester4[$i] * $row['prijs'];
+        echo $tester4[$i] * $row['prijs'];
         echo "</br>";
         echo "</br>";
         
-        
+     $nummer++;  
+    $i++;
     }
         
-                           
+                       
     /* if ($array[0] > 499) {
         $sql2 = "INSERT INTO bestelling
         (status,product_idproduct,aantal,werknemer_idwerknemer)Values('goedkeuring','$array[1]','$array[2]','$getWerknemersid');" ;
@@ -214,7 +231,7 @@ $getWerknemersid = $_COOKIE['login'];
                        }
       
 
-                       }
+                       
   
 
   
