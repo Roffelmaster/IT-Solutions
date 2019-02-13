@@ -145,8 +145,11 @@ while($row = mysqli_fetch_array($result2)) {
 
 
   	$sql = "UPDATE bestelling SET status = '$status1' WHERE idbestelling = '$bestellingid'";
+    $sql3 = "INSERT into factuur (status,bestelling_idbestelling)VALUES('wachtend op goedkeuring','$bestellingid')";
   	// execute query
   	mysqli_query($db, $sql) or die('Error querying
+    database.');
+      mysqli_query($db, $sql3) or die('Error querying
     database.');
 
   }
