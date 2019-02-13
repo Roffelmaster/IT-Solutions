@@ -20,8 +20,8 @@ session_start();
 
   </head>
 
-<body> 
-    <!-- Navigation -->
+  <body>
+<!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -33,50 +33,62 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <!-- iedereen  --> 
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+              <?php
+               if($_SESSION['permissie'] == 2){
+                   ?>
             <li class="nav-item">
-              <a class="nav-link" href="product-toevoegen.php">product toevoegen</a><!-- Inkoop  -->
+              <a class="nav-link" href="product-toevoegen.php">product toevoegen</a>
             </li>
+              
+              <?php
+               }
+                   ?>
             <li class="nav-item">
-              <a class="nav-link" href="product-overzicht.php">Producten</a><!-- inkoop(moet ok kunen wijzigen en verwijderen.) en werknemer -->
+              <a class="nav-link" href="product-overzicht.php">Producten</a>
             </li>
+              <?php
+               if($_SESSION['permissie'] == 2){
+                   ?>
               <li class="nav-item">
-              <a class="nav-link" href="leverancier-overzicht.php">leveranciers</a><!--inkoop   -->
+              <a class="nav-link" href="leverancier-overzicht.php">leveranciers</a>
             </li>
                <li class="nav-item">
-              <a class="nav-link" href="leverancier-toevoegen.php">leverancier toevoegen</a><!--inkoop   -->
+              <a class="nav-link" href="leverancier-toevoegen.php">leverancier toevoegen</a>
               </li>
-                <li class="nav-item">
-              <a class="nav-link" href="bestelling_lijst.php">Bestelling lijst</a><!-- department manager  -->
-              </li>
-                <li class="nav-item">
-                <a class="nav-link" href="mijnbestelling.php">Mijn Bestellingen</a> <!-- werknemer  -->
+               <?php
+               }
+                   ?>
+                    <li class="nav-item">
+              <a class="nav-link" href="bestelling_lijst.php">Bestelling lijst</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="factuur.php">Goedkeuring Factuur</a><!-- department manager -->
+              <a class="nav-link" href="factuur.php">Goedkeuring Factuur</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="factuur_lijst.php">Facturenlijst</a><!-- department manager en Financien -->
+              <a class="nav-link" href="factuur_lijst.php">Facturenlijst</a>
             </li>
                <li class="nav-item">
-              <a class="nav-link" href="logistiek.php">logistiek</a><!-- logistiek  -->
+              <a class="nav-link" href="logistiek.php">logistiek</a>
             </li>
              <li class="nav-item">
-            <a class="nav-link" href="manager.php">Manager</a><!-- department manager  -->
+            <a class="nav-link" href="manager.php">manager</a>
           </li>
             <li class="nav-item">
-              <a class="nav-link" href="frm_login.php">login</a><!-- wanneer niet ingelogd  -->
+              <a class="nav-link" href="frm_login.php">login</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="logout.php">Uitloggen</a><!-- iedereen  -->
+              <a class="nav-link" href="logout.php">Uitloggen</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+      
+      
       
     
       <!-- Bootstrap core JavaScript -->
