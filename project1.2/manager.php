@@ -23,7 +23,7 @@
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -106,18 +106,18 @@ $result2 = mysqli_query($db, $query) or die('Error querying
 database.');
 while($row = mysqli_fetch_array($result2)) {
   ?>
-                       
+
                        <option value="<?php echo $row['idfactuur'] ?>"> <?php echo "ID_FACTUUR:  ". $row['idfactuur'] .
       " |    STATUS :  ".$row['status']."   |   BESTELLING_ID:  ". $row['bestelling_idbestelling'] ?> </option>
 <?php
                        }
 
     ?>
-     
-     
+
+
    </select>
-        </p> 
-          
+        </p>
+
           <!--
           <label for="factuurid">factuur:</label><br>
           <input type="text"
@@ -165,7 +165,7 @@ while($row = mysqli_fetch_array($result2)) {
 
 
       <p>
-     <!--     
+     <!--
           <label for="bestellingid">bestelling:</label><br>
           <input type="text"
                    placeholder="voer in bestellingid"
@@ -184,15 +184,15 @@ $result = mysqli_query($db, $query) or die('Error querying
 database.');
 while($row = mysqli_fetch_array($result)) {
   ?>
-                       
+
                        <option value="<?php echo $row['idbestelling'] ?>"> <?php echo "ID_BESTELLING:  ". $row['idbestelling'] .
       " |    STATUS :  ".$row['status']."   |   PRODUCT_ID:  ". $row['product_idproduct']."| AANTAL:  ". $row['aantal'] ?> </option>
 <?php
                        }
 
     ?>
-     
-     
+
+
    </select>
         </p>
            <p>
@@ -228,8 +228,8 @@ while($row = mysqli_fetch_array($result)) {
   }
 }
 ?>
-    
-     
+
+
     </div>
     <!-- /.container -->
 
@@ -240,4 +240,3 @@ while($row = mysqli_fetch_array($result)) {
   </body>
 
 </html>
-

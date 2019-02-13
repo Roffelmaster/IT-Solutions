@@ -44,7 +44,7 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="product-toevoegen.php">product toevoegen</a>
             </li>
-              
+
               <?php
                }
               
@@ -146,10 +146,10 @@ session_start();
         </div>
       </div>
     </nav>
-      
-      
-      
-    
+
+
+
+
       <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
