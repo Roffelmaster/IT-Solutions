@@ -1,6 +1,8 @@
 <?php
 
-include 'database.php';
+
+include ('menu.php');
+
 
 
 

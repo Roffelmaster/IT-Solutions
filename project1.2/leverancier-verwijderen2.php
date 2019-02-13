@@ -1,5 +1,7 @@
-<?php
-include 'database.php';
+
+<?php 
+include ('menu.php');
+    
 
 
 $id2 = $_POST['idleverancier'];

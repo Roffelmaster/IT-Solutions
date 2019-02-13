@@ -84,7 +84,7 @@ include 'menu.php';
 
 
 <?php
-include 'database.php';
+
 if($_SESSION['permissie'] != 2){
 echo "je hebt hier geen rechten voor" ;
 }else{
