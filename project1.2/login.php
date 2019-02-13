@@ -22,7 +22,7 @@
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -82,7 +82,7 @@ include ('database.php');
 if (!empty($_POST)){
 
 	$gebruiker = mysqli_real_escape_string($db, $_POST['naam']);
-    
+
 	$wachtwoord = mysqli_real_escape_string($db, $_POST['wachtwoord']);
 	$query = 	"SELECT * FROM werknemer
 				WHERE naam ='" . $_POST["naam"] ."'
@@ -93,7 +93,7 @@ if (!empty($_POST)){
         // gebruikersnaam gevonden, registreer gegevens in session
 				$_SESSION["auth"]=true; //auth controleert of een klant is ingelogd
 				$_SESSION["timeout"]=time() + 120;
-                header("Location:index.html");
+                header("Location:index.php");
 				$_SESSION["gebruiker"]=$gebruiker;
 
 
@@ -109,7 +109,7 @@ if (!empty($_POST)){
   	$tekst = "<br><br>U hebt geen geldige combinatie van e-mailadres en wachtwoord opgegeven.<br>
 	Maak een keuze: <br>
 	<a href=\"frm_login.php\">Opnieuw inloggen</a><br>
-    <a href=\"index.html\">Naar homepage</a><br>";
+    <a href=\"index.php\">Naar homepage</a><br>";
 			die($tekst);
 		}
 }else{

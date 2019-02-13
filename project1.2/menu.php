@@ -24,7 +24,7 @@ session_start();
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="product-toevoegen.php">product toevoegen</a>
             </li>
-              
+
               <?php
                }
                    ?>
@@ -87,10 +87,10 @@ session_start();
         </div>
       </div>
     </nav>
-      
-      
-      
-    
+
+
+
+
       <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

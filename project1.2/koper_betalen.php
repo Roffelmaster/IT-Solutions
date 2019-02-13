@@ -23,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -94,15 +94,15 @@ echo "je hebt hier geen rechten voor 6" ;
 else{
 
 
- 
-    
+
+
 
    ?>
        <form action="koper_betalen.php"
           method="post"
           enctype="multipart/form-data">
         <p>
-        
+
         <select name="bestellingid">
         <?php
             $query = "SELECT * FROM bestelling";
@@ -110,16 +110,16 @@ $result2 = mysqli_query($db, $query) or die('Error querying
 database.');
 while($row = mysqli_fetch_array($result2)) {
   ?>
-                       
+
                        <option value="<?php echo $row['idbestelling'] ?>"> <?php echo "ID_BESTELLING:  ". $row['idbestelling'] .
       " |    STATUS :  ".$row['status']."   |   PRODUCT_ID:  ". $row['product_idproduct'] ?> </option>
 <?php
                        }
 
     ?>
-            
+
             </select>
-        
+
         </p>
 
               <select name="status_bestelling">
@@ -133,13 +133,13 @@ while($row = mysqli_fetch_array($result2)) {
     </form>
 
       <?php
-    
+
       // Initialize message variable
   $msg = "bestelling is veranderd";
 
   // If upload button is clicked ...
   if (isset($_POST ['status-veranderen'])) {
-    
+
       $bestellingid = mysqli_real_escape_string($db, $_POST['bestellingid']);
   	$status1 = mysqli_real_escape_string($db, $_POST['status_bestelling']);
 
@@ -154,12 +154,12 @@ while($row = mysqli_fetch_array($result2)) {
 
   }
 
-      
+
 //while($row = mysqli_fetch_array($result)) {
-    
+
 }
 //}
-        
+
 ?>
     </div>
     <!-- /.container -->

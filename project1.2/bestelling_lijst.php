@@ -23,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -112,20 +112,20 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>"."PRODUCT ID: ".$row['product_idproduct']."</td><br>";
     echo "<td>"."WERKNEMER ID: ".$row['werknemer_idwerknemer']."</td><br>";
     echo "<td>"."status: ".$row['status']."</td><br>";
-    
+
     if ($row['status'] == "Geaccepteerd"){
-        
+
     echo '<button style="border-radius: 12px;">';
      echo ("<br<td> <a href=\"koper_betalen.php?id=".$row['idbestelling'].'"style="color:black;""'."\">
 Bestel</a>");
     echo "</button>";
-    
+
     echo "</br>";
     }
     $nummer++;
-   
 
-  
+
+
   echo "</tr>";
 }
     echo "</br>";
