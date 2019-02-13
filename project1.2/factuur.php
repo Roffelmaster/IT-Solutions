@@ -81,10 +81,9 @@
      <?php
 session_start();
 include 'database.php';
-if ($_SESSION['permissie'] != 5){
+if ($_SESSION['permissie'] != 6){
 echo "je hebt hier geen rechten voor" ;
-} elseif ($_SESSION['permissie'] != 6) {
-echo "je hebt hier geen rechten voor" ;
+
 
 }else{
         ?>
@@ -105,8 +104,8 @@ echo "je hebt hier geen rechten voor" ;
 
 <br>
           <select name="taskOption">
-  <option value="goedkeuring">afwachting</option>
-  <option value="betaald">betaald</option>
+  <option value="Factuur afwachting door Financien">afwachting</option>
+  <option value="Factuur betaald">betaald</option>
 </select>
 
 

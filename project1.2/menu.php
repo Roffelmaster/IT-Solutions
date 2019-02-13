@@ -60,8 +60,21 @@ session_start();
                 
               <?php
               }
-                
-                
+             
+              
+              if($_SESSION['permissie'] == 1){
+              
+              
+              
+              
+              ?>
+              
+                  <li class="nav-item">
+              <a class="nav-link" href="mijnbestelling.php">Mijn bestelling</a>
+              </li>
+                <?php
+                  
+              }
                if($_SESSION['permissie'] == 2){
                    ?>
               
@@ -78,7 +91,7 @@ session_start();
                    
                    
                }
-               if(($_SESSION['permissie'] == 5) || ($_SESSION['permissie'] == 2)) {
+               if(($_SESSION['permissie'] == 5) || ($_SESSION['permissie'] == 4) || ($_SESSION['permissie'] == 3)) {
               
                    ?>
                     <li class="nav-item">
@@ -89,7 +102,7 @@ session_start();
                }
               
               
-              if(($_SESSION['permissie'] == 6) || ($_SESSION['permissie'] == 5)) {
+              if($_SESSION['permissie'] == 6){
               
               ?>
               
@@ -121,7 +134,7 @@ session_start();
                    if($_SESSION['permissie'] == 5) {
                   ?>
              <li class="nav-item">
-            <a class="nav-link" href="manager.php">manager</a>
+            <a class="nav-link" href="manager.php">Manager</a>
           </li>
               
               <?php
