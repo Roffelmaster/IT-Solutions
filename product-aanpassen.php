@@ -27,7 +27,7 @@ $image = $row["afbeelding"];
 }}
     
     ?>
-        
+        <br><br>
         <h3>Let op: Deze gegevens wijzigen?</h3>
 <form action="product-aanpassen2.php" method="post">
 <input type="hidden" name="confirmation" value="1">
