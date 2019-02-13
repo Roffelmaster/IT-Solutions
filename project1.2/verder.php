@@ -75,6 +75,7 @@
 session_start();
 
 
+echo "<br><br>";
 include "database.php";
 
 
@@ -238,17 +239,6 @@ $getWerknemersid = $_SESSION['id'];
 
 
 
-
-    </div>
-    
-    
-    
-    </body>
-
-
-</html>
-
-    </div>
     <!-- /.container -->
 
     <!-- Bootstrap core JavaScript -->
