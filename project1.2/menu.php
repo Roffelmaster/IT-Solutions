@@ -24,7 +24,7 @@ session_start();
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="images/logo.jpg" width="150" height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,7 @@ session_start();
               </a>
             </li>
               <?php
+              // inkoop
                if($_SESSION['permissie'] == 2){
                    ?>
             <li class="nav-item">
@@ -46,40 +47,98 @@ session_start();
               
               <?php
                }
+              
+              // inkoop en werknemer
+              if(($_SESSION['permissie'] == 1) || ($_SESSION['permissie'] == 2)) {
+                  
                    ?>
+            
             <li class="nav-item">
               <a class="nav-link" href="product-overzicht.php">Producten</a>
             </li>
+                
+                
               <?php
+              }
+                
+                
                if($_SESSION['permissie'] == 2){
                    ?>
+              
               <li class="nav-item">
               <a class="nav-link" href="leverancier-overzicht.php">leveranciers</a>
             </li>
+              
+              
                <li class="nav-item">
               <a class="nav-link" href="leverancier-toevoegen.php">leverancier toevoegen</a>
               </li>
                <?php
+                   
+                   
+                   
                }
+               if(($_SESSION['permissie'] == 5) || ($_SESSION['permissie'] == 2)) {
+              
                    ?>
                     <li class="nav-item">
               <a class="nav-link" href="bestelling_lijst.php">Bestelling lijst</a>
             </li>
+              <?php
+              
+               }
+              
+              
+              if(($_SESSION['permissie'] == 6) || ($_SESSION['permissie'] == 5)) {
+              
+              ?>
+              
               <li class="nav-item">
               <a class="nav-link" href="factuur.php">Goedkeuring Factuur</a>
             </li>
+            
+              
+              
               <li class="nav-item">
               <a class="nav-link" href="factuur_lijst.php">Facturenlijst</a>
             </li>
+              <?php
+                  
+              }
+              
+              if($_SESSION['permissie'] == 4) {
+                  
+                  
+              ?>
+              
                <li class="nav-item">
               <a class="nav-link" href="logistiek.php">logistiek</a>
             </li>
+              
+              <?php
+              }
+                 
+                   if($_SESSION['permissie'] == 5) {
+                  ?>
              <li class="nav-item">
             <a class="nav-link" href="manager.php">manager</a>
           </li>
+              
+              <?php
+                       
+                   }
+              
+              if(!isset($_SESSION['permissie'])){
+              ?>
             <li class="nav-item">
               <a class="nav-link" href="frm_login.php">login</a>
             </li>
+              <?php
+              }
+                  
+              
+                  ?>
+              
               <li class="nav-item">
               <a class="nav-link" href="logout.php">Uitloggen</a>
             </li>
