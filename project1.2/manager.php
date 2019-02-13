@@ -96,6 +96,7 @@ echo "je hebt hier geen rechten voor" ;
           enctype="multipart/form-data">
 
 <p>
+    <br>
         </p>
       <p>
           <select name="factuurid">

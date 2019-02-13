@@ -105,6 +105,7 @@ database.');
 $nummer = 1;
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
+    echo "</br>";
     echo "Nummer: $nummer";
     echo "</br>";
     echo "<td>"."ID: ".$row['idbestelling']."</td><br>";
@@ -116,7 +117,7 @@ while($row = mysqli_fetch_array($result)) {
         
     echo '<button style="border-radius: 12px;">';
      echo ("<br<td> <a href=\"koper_betalen.php?id=".$row['idbestelling'].'"style="color:black;""'."\">
-Betaal</a>");
+Bestel</a>");
     echo "</button>";
     
     echo "</br>";
@@ -127,6 +128,7 @@ Betaal</a>");
   
   echo "</tr>";
 }
+    echo "</br>";
 }
  ?>
     </div>

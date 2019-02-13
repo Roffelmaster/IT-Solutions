@@ -1,7 +1,7 @@
 <?php
 
-include 'database.php';
-session_start();
+
+
 include 'menu.php';
 ?>
 <!DOCTYPE html>
