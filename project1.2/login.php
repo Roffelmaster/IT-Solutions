@@ -114,7 +114,7 @@ if (!empty($_POST)){
 		}
 }else{
 	// pagina was incorrect aangeroepen, direct doorsturen naar login.php
-	header("Location:index.html");
+	header("Location:index.php");
 }
 
 ?>
